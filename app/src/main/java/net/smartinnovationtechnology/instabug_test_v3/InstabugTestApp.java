@@ -5,15 +5,22 @@ import android.app.Application;
 import com.instabug.library.IBGInvocationEvent;
 import com.instabug.library.Instabug;
 
+import me.branded.hossamhassan.instamonitor.InstaMonitor;
+
 /**
  * Created by Hossam on 5/8/2016.
  */
-public class InstabugTestApp extends Application {
+public class InstabugTestApp extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
         new Instabug.Builder(this, "d0d625de1e15113b603db49890fd023a")
                 .setInvocationEvent(IBGInvocationEvent.IBGInvocationEventShake)
                 .build();
+
+        InstaMonitor instaMonitor= InstaMonitor.getInstance();
+        instaMonitor.init(this);
+
+
     }
 }
