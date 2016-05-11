@@ -13,6 +13,11 @@ import android.text.TextUtils;
  * A pack of helpful getter and setter methods for reading/writing to {@link SharedPreferences}.
  */
 final public class Prefs {
+    final public static String APP_SESSION="APP_SESSION";
+    final public static String START="START";
+    final public static String END="END";
+    final public static String SESSION="SESSION";
+
     private Prefs() {}
     /**
      * Helper method to retrieve a String value from {@link SharedPreferences}.

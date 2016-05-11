@@ -28,12 +28,12 @@ public class OnClearFromRecentService extends Service {
     }
 
     public void onTaskRemoved(Intent rootIntent) {
-        Log.e("INSTA_MONITOR", "END");
+        Log.i("INSTA_MONITOR", "END");
         Long startTime=InstaMonitor.getInstance().getStartTime();
         Long endTime= System.currentTimeMillis();
-        Long pastTime=Prefs.getLongPreference(this,getPackageName()+"APP_SESSION_TIME",0);
+        Long pastTime=Prefs.getLongPreference(this,"APP_SESSION_TIME",0);
         pastTime+=(endTime-startTime);
-        Prefs.setLongPreference(this,getPackageName()+"APP_SESSION_TIME",pastTime);
+        Prefs.setLongPreference(this,"APP_SESSION_TIME",pastTime);
         Log.i("INSTA_MONITOR", "onTaskRemoved: "+pastTime);
         //Code here
         stopSelf();
